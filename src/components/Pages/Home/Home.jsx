@@ -6,10 +6,8 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-const-assign */
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
 import { getPokemon, getAllPokemon } from "../../services/pokemon";
 import CardPokemon from "../../organisms/CardPokemon/CardPokemon";
-// import PokemonList from "../../organisms/PokemonList/PokemonList";
 
 export default function Home() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -36,14 +34,13 @@ export default function Home() {
     setPokemonData(pokemons);
   };
 
-  console.log(pokemonData, "pokemon");
   return (
     <div>
       {loading ? (
         <h1 style={{ textAlign: "center" }}>Loading...</h1>
       ) : (
         <>
-          <div className="grid-container">
+          <div>
             {pokemonData.map((pokemon, i) => {
               return <CardPokemon key={i} pokemon={pokemon} />;
             })}
