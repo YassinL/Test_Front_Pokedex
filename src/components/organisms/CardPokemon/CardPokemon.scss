@@ -1,7 +1,7 @@
 @import "../../_settings/variables";
 .card {
   margin: 5%;
-  width: 80%;
+  width: 70%;
   height: 12vh;
   border: 2px solid $middle-grey;
   display: flex;
@@ -27,9 +27,8 @@
     }
 
     &_types {
-      padding-top: 1%;
+      padding-top: 1px;
       &_type {
-        padding-top: 4px;
       }
     }
 

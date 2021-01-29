@@ -11,7 +11,6 @@ export default function OnePokemon() {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log("render");
     const fetchData = async () => {
       const result = await Axios(`https://pokeapi.co/api/v2/pokemon/${id}`);
 

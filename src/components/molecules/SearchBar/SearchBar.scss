@@ -1,0 +1,21 @@
+.search {
+  width: 35%;
+  &_label {
+    height: 5vh;
+    background-color: #e0e6eb;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    width: 100%;
+    &_input {
+      width: 90%;
+      padding: 3%;
+      border: none;
+      background-color: transparent;
+    }
+    & svg {
+      height: 80%;
+      width: auto;
+    }
+  }
+}

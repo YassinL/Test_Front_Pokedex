@@ -16,7 +16,12 @@ export default function CardPokemon({ pokemon }) {
           />
           <div className="card_informations">
             <div>
-              <h2 className="card_informations_name">{pokemon.name}</h2>
+              <h2
+                className="card_informations_name"
+                style={{ textTransform: "capitalize" }}
+              >
+                {pokemon.name}
+              </h2>
               <div className="card_informations_types">
                 {pokemon.types.map((type) => {
                   return (

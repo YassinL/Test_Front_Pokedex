@@ -5,9 +5,11 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-plusplus */
 /* eslint-disable no-const-assign */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { getPokemon, getAllPokemon } from "../../services/pokemon";
 import CardPokemon from "../../organisms/CardPokemon/CardPokemon";
+import SearchBar from "../../molecules/SearchBar/SearchBar";
+import "./Home.scss";
 
 export default function Home() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -34,19 +36,31 @@ export default function Home() {
     setPokemonData(pokemons);
   };
 
+  const [search, setSearch] = useState("");
+
+  const pokemonfilter = useMemo(() => {
+    if (!search) return pokemonData;
+    return pokemonData.filter((pokemon) => {
+      return pokemon.name.toLowerCase().includes(search.toLowerCase());
+    });
+  }, [search, pokemonData]);
+
   return (
-    <div>
+    <>
       {loading ? (
         <h1 style={{ textAlign: "center" }}>Loading...</h1>
       ) : (
-        <>
-          <div>
-            {pokemonData.map((pokemon, i) => {
+        <div className="home">
+          <div className="home_searchBar">
+            <SearchBar value={search} onChange={setSearch} />
+          </div>
+          <div className="home_card">
+            {pokemonfilter.map((pokemon, i) => {
               return <CardPokemon key={i} pokemon={pokemon} />;
             })}
           </div>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 }
