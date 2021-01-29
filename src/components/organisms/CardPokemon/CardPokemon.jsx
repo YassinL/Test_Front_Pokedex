@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-// eslint-disable-next-line react/prop-types
 import React from "react";
 import { HashLink } from "react-router-hash-link";
 import "./CardPokemon.scss";
